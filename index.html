@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CMI — Connecting the Dots | Stephen Constant</title>
+<meta name="description" content="Constant Monetary Instruments — financial strategies and systems, part of Stephen Constant's Connecting the Dots work.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#0A0A0A; --black-soft:#121110; --gold:#C9973F; --gold-light:#E8C77A;
+  --gold-dim:#4A3A1E; --ivory:#F2EEE3; --stone:#BEB8A9; --stone-dim:#8A8471;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--stone);font-family:'Jost',sans-serif;overflow-x:hidden;}
+::selection{background:var(--gold-dim);color:var(--ivory);}
+a{color:inherit;text-decoration:none;}
+
+.eyebrow{font-family:'Jost',sans-serif;font-weight:600;font-size:.72rem;letter-spacing:.28em;
+  color:var(--gold);text-transform:uppercase;margin-bottom:1.1rem;}
+h1,h2,h3,.headline{font-family:'Fraunces',serif;font-weight:300;color:var(--ivory);line-height:1.12;
+  letter-spacing:-.01em;}
+.rule{width:44px;height:1.5px;background:var(--gold);margin-bottom:1.6rem;}
+.rule-thin{width:100%;height:1px;background:var(--gold-dim);}
+em.gold{font-family:'Fraunces',serif;font-style:italic;color:var(--gold-light);font-weight:400;}
+
+/* ---------- top tab nav (identical to the rest of the site) ---------- */
+#topnav{position:sticky;top:0;z-index:50;background:rgba(10,10,10,.88);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--gold-dim);}
+.nav-inner{max-width:1100px;margin:0 auto;padding:1.1rem 2rem;display:flex;align-items:center;
+  justify-content:space-between;flex-wrap:wrap;gap:.75rem;}
+.brand{font-family:'Fraunces',serif;font-size:1.05rem;color:var(--ivory);letter-spacing:.02em;}
+.navlinks{display:flex;gap:1.6rem;flex-wrap:wrap;}
+.navlinks a{font-size:.82rem;letter-spacing:.05em;color:var(--stone);transition:color .2s ease;}
+.navlinks a:hover{color:var(--gold-light);}
+.navlinks a.active{color:var(--gold);}
+
+/* ---------- layout ---------- */
+section{max-width:820px;margin:0 auto;padding:6.5rem 2rem;}
+.hero-sec{padding-top:8rem;padding-bottom:5rem;}
+.hero-sec h1{font-size:clamp(2.2rem,5vw,3.4rem);}
+.lede{font-size:1.05rem;line-height:1.75;color:var(--stone);max-width:620px;margin-top:1.4rem;}
+
+.quickfacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1.5rem;margin-top:2.5rem;}
+.qf{border-left:1px solid var(--gold-dim);padding-left:1rem;}
+.qf .num{font-family:'Fraunces',serif;color:var(--gold-light);font-size:1.3rem;}
+.qf .lab{font-size:.72rem;letter-spacing:.08em;color:var(--stone-dim);text-transform:uppercase;margin-top:.2rem;}
+
+.pillquote{font-family:'Fraunces',serif;font-style:italic;font-size:1.3rem;color:var(--ivory);
+  border-left:2px solid var(--gold);padding-left:1.4rem;margin:2rem 0;line-height:1.5;}
+
+.pills{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.6rem;}
+.pill{border:1px solid var(--gold-dim);color:var(--stone);font-size:.78rem;letter-spacing:.04em;
+  padding:.45rem 1rem;border-radius:2px;}
+
+.connect-row{display:grid;grid-template-columns:1fr 2fr;gap:1.5rem;padding:1.8rem 0;
+  border-top:1px solid var(--gold-dim);}
+.connect-row:last-child{border-bottom:1px solid var(--gold-dim);}
+.connect-row h3{font-size:1.15rem;}
+.connect-row p{font-size:.92rem;line-height:1.6;color:var(--stone);}
+@media (max-width:640px){.connect-row{grid-template-columns:1fr;gap:.5rem;}}
+
+.mission-statement{font-family:'Fraunces',serif;font-weight:300;font-size:1.5rem;color:var(--ivory);
+  line-height:1.45;max-width:680px;margin:1.6rem 0 0 0;}
+
+.fund-box{border:1px solid var(--gold-dim);background:var(--black-soft);padding:2.2rem;margin-top:2rem;border-radius:2px;}
+.fund-box .status{display:inline-block;font-size:.7rem;letter-spacing:.1em;color:var(--gold);
+  border:1px solid var(--gold-dim);padding:.3rem .8rem;text-transform:uppercase;margin-bottom:1rem;}
+.disclosure{font-size:.78rem;color:var(--stone-dim);line-height:1.6;margin-top:1.4rem;
+  border-top:1px solid var(--gold-dim);padding-top:1.2rem;}
+
+.cta-band{text-align:center;padding:6rem 2rem 7rem 2rem;}
+.cta-band h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:1.2rem;}
+.btnrow{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.8rem;}
+.btn{border:1px solid var(--gold);color:var(--gold-light);font-size:.85rem;letter-spacing:.05em;
+  padding:.9rem 1.8rem;border-radius:2px;transition:background .2s ease,color .2s ease;}
+.btn:hover{background:var(--gold);color:var(--black);}
+.btn.solid{background:var(--gold);color:var(--black);}
+.btn.solid:hover{background:var(--gold-light);}
+
+footer{border-top:1px solid var(--gold-dim);padding:2.5rem 2rem;text-align:center;
+  font-size:.75rem;color:var(--stone-dim);letter-spacing:.04em;}
+footer a{color:var(--gold);}
+
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .7s ease, transform .7s ease;}
+.reveal.in{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<nav id="topnav">
+  <div class="nav-inner">
+    <a class="brand" href="/">Connecting the Dots</a>
+    <div class="navlinks">
+      <a href="/">Home</a>
+      <a href="/philosophy">Philosophy</a>
+      <a href="/insight">Insight</a>
+      <a href="/method">Method</a>
+      <a href="/about">About</a>
+      <a href="/work">Work</a>
+      <a href="/contact">Connect</a>
+      <a class="active" href="/cmi_overview/">CMI</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero-sec reveal">
+  <div class="eyebrow">Financial Strategy &amp; Systems</div>
+  <h1>Constant Monetary <em class="gold">Instruments</em></h1>
+  <p class="lede">CMI is where the financial-strategy thread of Stephen's work lives — the systems, structure, and long-term thinking behind building real, lasting wealth. It isn't a separate company from Connecting the Dots. It's one of the rooms in the same house.</p>
+  <div class="quickfacts">
+    <div class="qf"><div class="num">2024</div><div class="lab">Founded</div></div>
+    <div class="qf"><div class="num">Finance</div><div class="lab">Core Focus</div></div>
+    <div class="qf"><div class="num">People</div><div class="lab">Built For</div></div>
+  </div>
+</section>
+
+<div class="rule-thin" style="max-width:820px;margin:0 auto;"></div>
+
+<section class="reveal">
+  <div class="eyebrow">Mission</div>
+  <p class="mission-statement">CMI exists to build financial strategies and systems that give people and organizations real, lasting freedom — not shortcuts, not hype, just sound structure applied with discipline.</p>
+  <p class="pillquote">Systems create freedom.</p>
+  <div class="pills">
+    <div class="pill">Faith</div>
+    <div class="pill">Integrity</div>
+    <div class="pill">Excellence</div>
+    <div class="pill">Stewardship</div>
+    <div class="pill">Impact</div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="eyebrow">What CMI Does</div>
+  <h2 style="font-size:1.8rem;margin-bottom:.5rem;">Who it's for, and how it helps</h2>
+  <div class="connect-row">
+    <h3>Financial Strategy</h3>
+    <p>Building the foundation — budgeting systems, debt structure, and a real plan for where money goes and why.</p>
+  </div>
+  <div class="connect-row">
+    <h3>Wealth Building</h3>
+    <p>Long-horizon thinking about investing, asset allocation, and how disciplined saving compounds into real freedom.</p>
+  </div>
+  <div class="connect-row">
+    <h3>Organizations &amp; Individuals</h3>
+    <p>CMI works with both — people building personal financial footing, and organizations building sound financial systems.</p>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="eyebrow">Flagship Offering</div>
+  <h2 style="font-size:1.8rem;">The Pot Investment Fund</h2>
+  <div class="fund-box">
+    <span class="status">Not Yet Accepting Capital</span>
+    <p style="font-size:.95rem;line-height:1.7;color:var(--stone);">The Pot Fund is CMI's long-term investment vehicle in development — built around the same principles as everything else here: patience, structure, and real stewardship over quick returns.</p>
+    <div class="disclosure">This fund is in the planning stage and is not currently open to outside capital. Nothing here is an offer to sell securities. All investing involves risk, including loss of principal, and past performance does not guarantee future results.</div>
+  </div>
+</section>
+
+<section class="cta-band reveal">
+  <div class="eyebrow" style="justify-content:center;display:flex;">Partner With CMI</div>
+  <h2>Let's build something that lasts.</h2>
+  <div class="btnrow">
+    <a class="btn solid" href="/contact">Get in touch</a>
+    <a class="btn" href="/about">Back to About</a>
+  </div>
+</section>
+
+<footer>
+  Constant Monetary Instruments — part of <a href="/">Connecting the Dots</a> · Stephen Constant
+</footer>
+
+<script>
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); } });
+},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
